@@ -1,0 +1,198 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: antiquewhite;
+    width: 1204px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.1rem;
+}
+
+body > * {
+    padding: 1rem;
+}
+
+header {
+    border: 1px solid #000;
+    margin: 1rem 0;
+    width: 1200px;
+    order: 1;
+}
+
+header hgroup {
+    margin: 1rem auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+header h1:nth-child(1){
+    color: blue;
+    order: 1;
+}
+
+header h2:nth-child(2){
+    color: red;
+    order: 2;
+}
+
+header h2:nth-child(3){
+    color: green;
+    order: 3;
+}
+
+aside#leftA {
+    background-color: rgba(35, 117, 165, 0.5);
+    width: 300px; /* Total box-size 300px */
+    order: 3;
+}
+
+article {
+    background-color: #dabd1675;
+    width: 600px; /* Box-size 600px */
+    border: 5px solid #666; /* Box-size 600px - (5px *2) = 590px */
+    padding: 10px; /* Total Internal size = 600px - 10px - (10px *2) = 570px*/
+    order: 4;
+}
+
+aside#rightA {
+    background-color: rgba(114, 189, 30, 0.5);
+    width: 300px; /* Total box-size 400px */
+    order: 5;
+}
+
+footer {
+    border: solid 1px black;
+    margin: 3rem 0;
+    width: 1200px;
+    order: 6;
+}
+
+/* Next Sibling Combinator */
+
+article h2 + p {
+    color: rgb(142, 43, 172);
+    font-weight: 700;
+}
+
+/* Subsequent-sibling combinator */
+
+article hr ~ p {
+    color: green;
+    font-weight: 700;
+}
+
+header:hover ~ footer {
+    color: white;
+    background-color: crimson;
+}
+
+/* Simple navbar & Menu Bar */
+
+/* First Level */
+nav {
+    order: 2;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 1rem;
+    border: 1px red solid;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    width: calc(1200px / 6);
+    background-color: #ffa600b0;
+    text-align: center;    
+    position: relative; /* Container */
+}
+
+nav ul li + li {
+    border-left: 1px solid #fff;
+}
+
+nav ul li:hover {
+    background-color: #ffa500;
+}
+
+nav ul li a {
+    text-decoration: none;    
+    color: #bb243d;
+    display: block;
+    font-weight: 600;
+    padding: 1rem 0;
+}
+
+/* Second Level */
+
+nav ul ul {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0;
+}
+
+nav ul li:hover ul {
+    display: block;
+}
+
+nav ul li ul li a {
+    color: #000;
+}
+
+nav ul li ul li + li {
+    border-top: solid 1px #fff;
+}
+
+nav ul li ul li {
+    width: 100%;
+    background-color: #d2691ee7;
+    border-left: 0;
+}
+
+nav ul li ul li:hover {    
+    background-color: #d2691e;
+}
+
+/* Third Level */
+
+nav ul li:hover ul ul {
+    display: none;
+}
+
+nav ul li ul li:hover ul {
+    display: block;
+    top:0;
+    left: 100%;
+}
+
+nav ul li ul li ul li {
+    width: 100%;
+    background-color: #cae009;
+}
+
+nav ul li ul li ul li a {
+    color: #000;
+}
+
+nav ul li ul li ul li:hover {
+    width: 100%;
+    background-color: #e0c009;
+}
+
+nav ul li:last-child ul li:hover ul {
+    display: block;
+    top:0;
+    left: -100%;
+}
